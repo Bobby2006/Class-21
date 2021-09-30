@@ -1,27 +1,24 @@
-class Ground 
+class Ground
 {
-  constructor(x, y, w, h) 
-  {
-    let options = {
-      isStatic:true
-    };
-    
-    this.myrectangularbody = Bodies.rectangle(x, y, w, h, options);
-    this.w = w;
-    this.h = h;
-    World.add(myworld, this.myrectangularbody);
-  }
+    constructor(posX, posY, width, height)
+    {
+        this.x = posX;
+        this.y = posY;
+        this.w = width;
+        this.h = height;
 
-  show() {
-    var pos = this.myrectangularbody.position;
-    push();
-    rectMode(CENTER);
-    stroke(255);
-    fill(127);
-    rect(pos.x, pos.y, this.w, this.h);
-    pop();
-  }
-  
+        var options =
+        {
+            isStatic: true
+        }
+
+        this.ground = Bodies.rectangle(posX, posY, width, height, options);
+        World.add(myworld, this.ground);
+    }
+
+    display()
+    {
+        rectMode(CENTER);
+        rect(this.posX, this.posY, this.width, this.height);
+    }
 }
-
-
